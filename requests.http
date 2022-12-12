@@ -12,7 +12,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlL
 
 GET http://localhost:8080/products HTTP/1.1
 content-type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY1MDIzMzkwOSwiZXhwIjoxNjUwMjM3NTA5LCJzdWIiOiIyIn0.nS99u-MBatZHbexMUenwsGdS8oV55BIaGwI6PSP7BC8
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY3MDc5NTk4MiwiZXhwIjoxNjcwNzk5NTgyLCJzdWIiOiIyIn0.We_viBZvqs-GsA0HAgCUSTkPWhA5AAV6_eWnT_s3hdc
 
 GET http://localhost:8080/orders HTTP/1.1
 content-type: application/json
@@ -60,3 +60,54 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlL
     "status": "pending",
     "dataEntry": "2022-03-05 15:00"
 }
+
+POST http://localhost:8080/users HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY2OTg0MzU1MCwiZXhwIjoxNjY5ODQ3MTUwLCJzdWIiOiIyIn0.pMi6MF0qmgZSfTzV6Lo3Hm9QWmrPd2v2egkCjIadJX8
+
+{
+  "email": "mesero@burger.com",
+  "password": "123456",
+  "role": "mesero"
+}
+
+POST http://localhost:8080/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "mesero@burger.com",
+    "password": "123456"
+}
+
+GET http://localhost:8080/products HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY3MDc4MzQ2MSwiZXhwIjoxNjcwNzg3MDYxLCJzdWIiOiIyIn0.y1Yp_yAYMMKH9HVn6O69D90egWNeo2a2h1fyCKcpWI4
+
+{
+  "name": "Café Americano",
+  "price": 5,
+  "image": "https://ibb.co/19HRwsQ",
+  "type": "Desayuno"
+}
+
+POST http://localhost:8080/products/5 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY3MDc5NTkyMSwiZXhwIjoxNjcwNzk5NTIxLCJzdWIiOiIyIn0.gXluapfbUgrvznPNaRS3QMZUA-G_G-SQF0nboy2JIaw
+
+{
+    "name": "Café Americano",
+    "price": 5,
+    "image": "https://ibb.co/19HRwsQ",
+    "type": "Desayuno",
+    "id": 5
+}
+
+}
+
+curl -X 'DELETE' \
+  'https://virtserver.swaggerhub.com/ssinuco/BurgerQueenAPI/2.0.0/products/5' \
+  -H 'accept: application/json'
+
+
+
+
